@@ -40,11 +40,18 @@ class SampleAudioMaximumVolumeAndBackgroundController: UIViewController {
             let soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "audiosample", ofType: "m4a")!)
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             audioPlayer?.prepareToPlay()
-            audioPlayer?.volume = 10
+            audioPlayer?.volume = 2
             audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
         } catch let error {
             print(error.localizedDescription)
+        }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print(error)
         }
     }
 }

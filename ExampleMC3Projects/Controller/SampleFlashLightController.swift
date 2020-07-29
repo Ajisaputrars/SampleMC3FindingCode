@@ -12,6 +12,7 @@ import AVFoundation
 class SampleFlashLightController: UIViewController {
     
     var timer: Timer!
+    var device: AVCaptureDevice!
     
     let sampleFlashButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
@@ -31,6 +32,9 @@ class SampleFlashLightController: UIViewController {
         }
         
         self.title = "Sample Flash"
+        
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+        self.device = device
         
         self.sampleFlashButton.addTarget(self, action: #selector(playTorch), for: .touchUpInside)
     }
@@ -55,8 +59,7 @@ class SampleFlashLightController: UIViewController {
     
     @objc
     private func playSampleFlash(){
-        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
-        guard device.hasTorch else { return }
+        guard self.device.hasTorch else { return }
         
         do {
             try device.lockForConfiguration()
