@@ -62,5 +62,16 @@
 	</array>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.ajisaputrars.ExampleMC3Projects</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ExampleMC3Projects</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

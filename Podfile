@@ -17,4 +17,9 @@ target 'ExampleMC3Projects' do
     # Pods for testing
   end
 
+  target 'SampleWidget' do
+    
+    # Pods for testing
+  end
+
 end

@@ -44,7 +44,7 @@ class SampleAudioMaximumVolumeAndBackgroundController: UIViewController {
             let soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "audiosample", ofType: "m4a")!)
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             audioPlayer?.prepareToPlay()
-            audioPlayer?.volume = 0.5
+            audioPlayer?.volume = 0.1
             audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
         } catch let error {
