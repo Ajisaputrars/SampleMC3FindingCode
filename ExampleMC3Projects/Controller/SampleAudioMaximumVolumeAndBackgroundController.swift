@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class SampleAudioMaximumVolumeAndBackgroundController: UIViewController {
     
@@ -31,16 +32,19 @@ class SampleAudioMaximumVolumeAndBackgroundController: UIViewController {
         
         self.title = "Sample Audio"
         
+        MPVolumeView.setVolume(0.1)
+        
         self.sampleAudioButton.addTarget(self, action: #selector(playSampleAudio), for: .touchUpInside)
     }
     
     @objc
     private func playSampleAudio() {
+        MPVolumeView.setVolume(1.0)
         do {
             let soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "audiosample", ofType: "m4a")!)
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             audioPlayer?.prepareToPlay()
-            audioPlayer?.volume = 2
+            audioPlayer?.volume = 0.5
             audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
         } catch let error {
@@ -52,6 +56,17 @@ class SampleAudioMaximumVolumeAndBackgroundController: UIViewController {
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             print(error)
+        }
+    }
+}
+
+extension MPVolumeView {
+    static func setVolume(_ volume: Float) {
+        let volumeView = MPVolumeView()
+        let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+            slider?.value = volume
         }
     }
 }
