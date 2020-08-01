@@ -37,14 +37,18 @@ class SampleAudioMaximumVolumeAndBackgroundController: UIViewController {
         self.sampleAudioButton.addTarget(self, action: #selector(playSampleAudio), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barStyle = .default
+    }
+    
     @objc
     private func playSampleAudio() {
         MPVolumeView.setVolume(1.0)
         do {
-            let soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "audiosample", ofType: "m4a")!)
+            let soundURL = URL(fileURLWithPath: Bundle.main.path(forResource: "ding", ofType: "m4a")!)
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             audioPlayer?.prepareToPlay()
-            audioPlayer?.volume = 0.1
+            audioPlayer?.volume = 1
             audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
         } catch let error {
@@ -52,7 +56,8 @@ class SampleAudioMaximumVolumeAndBackgroundController: UIViewController {
         }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             print(error)

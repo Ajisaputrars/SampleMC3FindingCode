@@ -15,6 +15,7 @@
 		D71C812A24D164470076019C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C812924D164470076019C /* TodayViewController.swift */; };
 		D71C812D24D164470076019C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71C812B24D164470076019C /* MainInterface.storyboard */; };
 		D71C813124D164470076019C /* SampleWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D71C812524D164470076019C /* SampleWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D79E400E24D538DF00C8C7E4 /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D79E400D24D538DF00C8C7E4 /* ding.m4a */; };
 		D7AE187B24D0738A00243E1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE187A24D0738A00243E1F /* AppDelegate.swift */; };
 		D7AE187D24D0738A00243E1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE187C24D0738A00243E1F /* SceneDelegate.swift */; };
 		D7AE187F24D0738A00243E1F /* SampleAudioMaximumVolumeAndBackgroundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AE187E24D0738A00243E1F /* SampleAudioMaximumVolumeAndBackgroundController.swift */; };
@@ -82,6 +83,7 @@
 		D71C812924D164470076019C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		D71C812C24D164470076019C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		D71C812E24D164470076019C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D79E400D24D538DF00C8C7E4 /* ding.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ding.m4a; sourceTree = "<group>"; };
 		D7AE187724D0738A00243E1F /* ExampleMC3Projects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleMC3Projects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AE187A24D0738A00243E1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AE187C24D0738A00243E1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		D7AE18AD24D112B000243E1F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				D79E400D24D538DF00C8C7E4 /* ding.m4a */,
 				D7AE18AE24D112C200243E1F /* audiosample.m4a */,
 			);
 			path = Audio;
@@ -395,6 +398,7 @@
 			files = (
 				D7AE188A24D0738C00243E1F /* LaunchScreen.storyboard in Resources */,
 				D7AE188724D0738C00243E1F /* Assets.xcassets in Resources */,
+				D79E400E24D538DF00C8C7E4 /* ding.m4a in Resources */,
 				D7AE18AF24D112C200243E1F /* audiosample.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

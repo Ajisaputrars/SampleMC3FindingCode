@@ -28,11 +28,24 @@ class MainController: UIViewController {
             make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
         self.title = "Main Page"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.setupNavigationBar()
+    }
+    
+    private func setupNavigationBar(){
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .red
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 }
 
@@ -50,7 +63,6 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         if indexPath.row == 0 {
             self.navigationController?.pushViewController(SampleAudioMaximumVolumeAndBackgroundController(), animated: true)
         } else if indexPath.row == 1 {
